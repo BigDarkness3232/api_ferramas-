@@ -21,7 +21,7 @@ ALTER TABLE producto ADD(
 
 --marcas de libros:
 INSERT INTO marca VALUES(1,'Bosch');
-INSERT INTO marca VALUES(2,'Makita');
+INSERT INTO marca VALUES(2,'Makitas');
 INSERT INTO marca VALUES(3,'Stanley');
 --insertar 3 libros:
 INSERT INTO producto VALUES('1111','Martillo',1,12,6,sysdate);
