@@ -7,6 +7,7 @@ from datetime import date
 
 class Producto(BaseModel):
     codigo: Optional[str] = None
+    imagen: 
     nombre_producto: str = Field(default="Nuevo producto", min_length=5, max_length=100)
     id_marca: int
     nombre_marca: Optional[str]
