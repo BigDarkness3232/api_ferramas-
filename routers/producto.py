@@ -23,12 +23,14 @@ async def get_Productos():
             for fila in cursor_productos.getvalue():
                 json = {}
                 json['codigo'] = fila[0]
-                json['nombre_producto'] = fila[1]
-                json['id_marca'] = fila[2]
-                json['nombre_marca'] = fila[3]
-                json['precio'] = fila[4]
-                json['stock'] = fila[5]
-                json['fecha'] = fila[6]
+                json["imagen"] = fila[1]
+                json['nombre_producto'] = fila[2]
+                json['descripcion'] = fila[3]
+                json['id_marca'] = fila[4]
+                json['nombre_marca'] = fila[5]
+                json['precio'] = fila[6]
+                json['stock'] = fila[7]
+                json['creado_en'] = fila[8]
                 lista.append(json)
             return lista
     except Exception as e:
@@ -47,12 +49,14 @@ async def get_producto(codigo: str):
             json = {}
             for fila in cursor_productos.getvalue():
                 json['codigo'] = fila[0]
-                json['nombre_producto'] = fila[1]
-                json['id_marca'] = fila[2]
-                json['nombre_marca'] = fila[3]
-                json['cant_paginas'] = fila[4]
-                json['precio'] = fila[5]
-                json['stock'] = fila[6]
+                json["imagen"] = fila[1]
+                json['nombre_producto'] = fila[2]
+                json['descripcion'] = fila[3]
+                json['id_marca'] = fila[4]
+                json['nombre_marca'] = fila[5]
+                json['precio'] = fila[6]
+                json['stock'] = fila[7]
+                json['creado_en'] = fila[8]
             return json
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
@@ -65,12 +69,14 @@ async def post_producto(producto: Producto):
         cursor = cone.cursor()
         out = cursor.var(int)
         cursor.callproc("SP_POST_producto", [producto.codigo,
-                                          producto.nombre_producto,
-                                          producto.id_marca,
-                                          producto.precio,
-                                          producto.stock,
-                                          producto.fecha,
-                                          out])
+                                            producto.imagen,
+                                            producto.nombre_producto,
+                                            producto.descripcion,
+                                            producto.id_marca,
+                                            producto.precio,
+                                            producto.stock,
+                                            producto.creado_en,
+                                            out])
         if out.getvalue()==1:
             cone.commit()
             return producto
@@ -85,12 +91,14 @@ async def put_producto(codigo:str, producto:Producto):
         cursor = cone.cursor()
         out = cursor.var(int)
         cursor.callproc("SP_PUT_producto", [producto.codigo,
-                                          producto.nombre_producto,
-                                          producto.id_marca,
-                                          producto.precio,
-                                          producto.stock,
-                                          producto.fecha,
-                                          out])
+                                            producto.imagen,
+                                            producto.nombre_producto,
+                                            producto.descripcion,
+                                            producto.id_marca,
+                                            producto.precio,
+                                            producto.stock,
+                                            producto.creado_en,
+                                            out])
         if out.getvalue()==1:
             cone.commit()
             return producto
@@ -119,12 +127,14 @@ async def path_producto(codigo:str, producto: Producto):
         cursor = cone.cursor()
         out = cursor.var(int)
         cursor.callproc("SP_PATCH_producto", [producto.codigo,
-                                          producto.nombre_producto,
-                                          producto.id_marca,
-                                          producto.precio,
-                                          producto.stock,
-                                          producto.fecha,
-                                          out])
+                                            producto.imagen,
+                                            producto.nombre_producto,
+                                            producto.descripcion,
+                                            producto.id_marca,
+                                            producto.precio,
+                                            producto.stock,
+                                            producto.creado_en,
+                                            out])
         if out.getvalue()==1:
             cone.commit()
             return producto

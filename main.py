@@ -6,4 +6,4 @@ app.include_router(ruta_Producto)
 
 @app.get("/")
 def mensaje_inicial():
-    return {"mensaje": "hola mundo"}
+    return {"mensaje": "Bienvenido a la ApiRest de Ferramas"}

@@ -3,7 +3,7 @@ DROP TABLE marca CASCADE CONSTRAINTS;
 
 CREATE TABLE producto(
    codigo number NOT NULL,
-  imagen varchar(100) DEFAULT NULL,
+  imagen varchar(100) ,
   nombre varchar(50) NOT NULL,
   descripcion varchar(500) NOT NULL,
   id_marca number NOT NULL,
@@ -28,9 +28,9 @@ INSERT INTO marca VALUES(1,'Bosch');
 INSERT INTO marca VALUES(2,'Makitas');
 INSERT INTO marca VALUES(3,'Stanley');
 --insertar 3 productos:
-INSERT INTO producto VALUES('1111','Martillo',1,12,6,sysdate);
-INSERT INTO producto VALUES('1112','maquina de soldar',2,14,4,sysdate);
-INSERT INTO producto VALUES('1113','Taladro',3,14,7,sysdate);
+INSERT INTO producto VALUES('1111','','Martillo','martillo es una herramienta manual de manejo simple, compuesta por una cabeza metálica generalmente en forma de cubo, conectada a un mango de madera o metal, utilizada para golpear y manipular objetos.',1,12,6,sysdate);
+INSERT INTO producto VALUES('1112','','maquina de soldar','máquina de soldar es un dispositivo que utiliza corriente eléctrica para fundir y unir metales. Suele constar de un transformador o inversor que convierte la corriente eléctrica en un voltaje adecuado para soldar, junto con controles para ajustar la intensidad y otros parámetros del proceso.',2,14,4,sysdate);
+INSERT INTO producto VALUES('1113','','Taladro','Un taladro es una herramienta eléctrica que se utiliza para perforar agujeros en diversos materiales, como madera, metal, plástico o concreto. Consiste en un motor eléctrico que impulsa una broca giratoria, la cual corta el material al entrar en contacto con él. Los taladros pueden ser de mano o estacionarios, y suelen tener diversas configuraciones de velocidad y potencia para adaptarse a diferentes tipos de trabajo.',3,14,7,sysdate);
 
 
 
