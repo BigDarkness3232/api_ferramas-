@@ -30,7 +30,6 @@ async def get_Productos():
                 json['nombre_marca'] = fila[5]
                 json['precio'] = fila[6]
                 json['stock'] = fila[7]
-                json['creado_en'] = fila[8]
                 lista.append(json)
             return lista
     except Exception as e:
@@ -56,7 +55,6 @@ async def get_producto(codigo: str):
                 json['nombre_marca'] = fila[5]
                 json['precio'] = fila[6]
                 json['stock'] = fila[7]
-                json['creado_en'] = fila[8]
             return json
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
@@ -75,7 +73,6 @@ async def post_producto(producto: Producto):
                                             producto.id_marca,
                                             producto.precio,
                                             producto.stock,
-                                            producto.creado_en,
                                             out])
         if out.getvalue()==1:
             cone.commit()
@@ -97,7 +94,6 @@ async def put_producto(codigo:str, producto:Producto):
                                             producto.id_marca,
                                             producto.precio,
                                             producto.stock,
-                                            producto.creado_en,
                                             out])
         if out.getvalue()==1:
             cone.commit()
@@ -133,7 +129,6 @@ async def path_producto(codigo:str, producto: Producto):
                                             producto.id_marca,
                                             producto.precio,
                                             producto.stock,
-                                            producto.creado_en,
                                             out])
         if out.getvalue()==1:
             cone.commit()
