@@ -103,7 +103,7 @@ async def put_producto(codigo:str, producto:Producto):
     finally:
         cursor.close()
 
-@router.delete("/productos/{codigo}")
+@router.delete("/Productos/{codigo}")
 async def delete_producto(codigo:str):
     try:
         cursor = cone.cursor()
@@ -117,7 +117,7 @@ async def delete_producto(codigo:str):
     finally:
         cursor.close()
 
-@router.patch("/productos/{codigo}")
+@router.patch("/Productos/{codigo}")
 async def path_producto(codigo:str, producto: Producto):
     try:
         cursor = cone.cursor()
