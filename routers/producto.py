@@ -7,7 +7,7 @@ cone = oracledb.connect(user="Ferremas",
                         password="Ferremas",
                         host="127.0.0.1",
                         port=1521,
-                        service_name="orcl.duoc.com.cl")
+                        service_name="XE")
 
 router = APIRouter()
 
